@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="icon"
+      type="image/png"
+      href="favicon.ico">
+     <link rel="stylesheet" type="text/css" href="style.css">
+     <link href="style.css" rel="stylesheet" type="text/css" />
+     <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
+     <style>
+          .table {
+               display: table;
+               margin: 0 auto;
+          }
+          .grid-container {
+               margin-top: 30px;
+               min-width: 696px;
+               list-style: none;
+               padding-top: 20px;
+          }
+     </style>
+</head>
+
+<div>
+  <ul class="breadcrumb">
+  <li><a href="index.html">home</a></li>
+  <li><a href="portfolio.html">portfolio</a></li>
+  <li><a href="graphicdesign.html">graphic design</a></li>
+</ul>
+</div>
+
+<body onload="followMouse();">
+          <div class="wrap">
+                    <div id="ball"></div>
+               </div>
+
+     <div class="container">
+          <h4>Graphic design</h4>
+          <h3>logo design</h3>
+          <div class="table">
+               <div class="grid-container">
+                    <div class="folioweb_Obszar roboczy 1.jpg"> <img src="folioweb-13.jpg" alt="egp" width="200" /></div>
+                    <div class="folioweb-02.jpg"><img src="folioweb-02.jpg" alt="2" width="200" /></div>
+                    <div class="folioweb-03.jpg"><img src="folioweb-03.jpg" alt="2" width="200" /></div>
+                    <div class="folioweb-04.jpg"><img src="folioweb-04.jpg" alt="2" width="200" /></div>
+                    <div class="folioweb-05.jpg"><img src="folioweb-05.jpg" alt="2" width="200" /></div>
+                    <div class="folioweb-06.jpg"><img src="folioweb-06.jpg" alt="2" width="200" /></div>
+                    <div class="folioweb-07.jpg"><img src="folioweb-07.jpg" alt="2" width="200" /></div>
+                    <div class="folioweb-08.jpg"><img src="folioweb-08.jpg" alt="2" width="200" /></div>
+                    <div class="folioweb-09.jpg"><img src="folioweb-09.jpg" alt="2" width="200" /></div>
+                    <div class="folioweb-10.jpg"><img src="folioweb-10.jpg" alt="2" width="200" /></div>
+                    <div class="folioweb-11.jpg"><img src="folioweb-11.jpg" alt="2" width="200" /></div>
+                    <div class="folioweb-12.jpg"><img src="folioweb-12.jpg" alt="2" width="200" /></div>
+               </div>
+          <h3>print design</h3>
+              <div class="table">
+                  <div class="grid-container2">
+                    <div class="off.jpg"><img src="off.jpg" alt="2" width="600" /></div>
+                    <div class="plakat.jpg"><img src="plakat.jpg" alt="2" width="600" /></div>
+                  </div>
+          <h3>branding</h3>
+                    <div class="mar.jpg"><img src="mar.jpg" alt="2" width="1200" /></div>
+                    <div class="hel.jpg"><img src="hel.jpg" alt="2" width="1200" /></div>
+          <h3>infographic</h3>
+                  <div class="con.jpg"><img src="con.jpg" alt="2" width="1200" /></div>
+
+
+
+     <script type="text/javascript">
+          var $ = document.querySelector.bind(document);
+          var $on = document.addEventListener.bind(document);
+          var xmouse, ymouse;
+          $on('mousemove', function (e) {
+               xmouse = e.clientX || e.pageX;
+               ymouse = e.clientY || e.pageY;
+          });
+          var ball = $('#ball');
+          var x = void 0,
+               y = void 0,
+               dx = void 0,
+               dy = void 0,
+               tx = 0,
+               ty = 0,
+               key = -1;
+          var followMouse = function followMouse() {
+               key = requestAnimationFrame(followMouse);
+               if (!x || !y) {
+                    x = xmouse;
+                    y = ymouse;
+               } else {
+                    dx = (xmouse - x) * 0.125;
+                    dy = (ymouse - y) * 0.125;
+                    if (Math.abs(dx) + Math.abs(dy) < 0.1) {
+                         x = xmouse;
+                         y = ymouse;
+                    } else {
+                         x += dx;
+                         y += dy;
+                    }
+               }
+               ball.style.left = x + 'px';
+               ball.style.top = y + 'px';
+          };
+     </script>
+
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.fullscreen-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .fullscreen-bg {
+    background: url('f.jpg') center center / cover no-repeat;
+  }
+
+  .fullscreen-bg__video {
+    display: none;
+  }
+}
+body {
+    background: white;
+    font-family: Alegreya, Alegreya Sans, Webdings;
+}
+
+.container {
+    max-width: 500px;
+    width: 80%;
+    margin-left: 100px; auto;
+    margin-top: 60px; auto;
+    text-align: justify;
+    background-color: white;
+    padding: 0px;
+    border-radius: 20px;
+}
+
+ul.breadcrumb {
+  padding: 5px 10px;
+  list-style: none;
+  background-color: #eee;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+  display: inline;
+  font-size: 10px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+h1 {
+    color: black; font-size: 64px;
+     }
+      @import url('https://fonts.googleapis.com/css?family=Roboto:500,700');
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+}
+
+.yellow {
+	max-width: 500px;
+    width: 80%;
+    margin-top: 60px; auto;
+    text-align: justify;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+h1 {
+	position: relative;
+	display: block;
+	margin: 0;
+	font-size: 4rem;
+	line-height: 1;
+	transform: translateX(6rem);
+	animation: up 1200ms linear forwards;
+	z-index: 1;
+	text-shadow: 0px 1px 1px rgba(255,255,255,1);
+
+	&::before,
+	&::after {
+		position: absolute;
+		content: '';
+		width: 0px;
+		height: 1px;
+		left: 0;
+		background-color: rgba(0,0,0,0.2);
+		z-index: -1;
+	}
+
+	&::before {
+		top: 0.2rem;
+		animation: draw 500ms linear 1s forwards;
+	}
+
+	&::after {
+		bottom: 0.4rem;
+		animation: draw 500ms linear 1s forwards;
+	}
+
+}
+
+.title-yellow {
+	font-size: 0;
+	position: relative;
+	overflow: hidden;
+	padding-bottom: 0.4rem;
+}
+
+@keyframes up {
+
+	100% {
+		transform: translateY(0);
+	}
+
+}
+
+@keyframes draw {
+
+	100% {
+		width: 100%;
+	}
+
+}
+h2 {
+    font-size: 18px;
+    font-family: Webdings;
+    padding: 0px;
+    margin-bottom: 100px;
+    color: #ff1a77;
+     }
+p {
+    margin-top: 40px;
+}
+ul, ul li {
+	display: block;
+	list-style: none;
+	margin-top: 40;
+	padding: 0;
+    }
+    .kiss h2:hover {
+        font-size: 29px;
+    }
+.vertical-menu {
+  width: 200px;
+  position: absolute;
+  top: 180px;
+}
+
+.vertical-menu a {
+  color: black;
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+ font-weight: bolder;
+ color: #00f78c;
+}
+.social {
+            padding: 0px;
+            position: absolute;
+            bottom: 80px;
+}
+.social a {
+              padding: 10px;
+              font-weight: bold;
+              text-decoration: none;
+              color: black;
+    }
+    .social a:hover {
+ color: #00f78c;
+ font-size: 22px;
+}
+
+.wrap {
+     position: absolute;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     overflow: hidden;
+}
+
+#ball {
+     width: 60px;
+     height: 60px;
+     border: 6px;
+     border-color: #00f78c;
+     border-radius: 50%;
+     background: black;
+     opacity: 0.1;
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     margin: -10px 0 0 -10px;
+     pointer-events: none;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 50px;
+  background-color: white;
+  padding: 50px;
+}
+
+.grid-container > div {
+  background-color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+.grid-container2 {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 50px;
+  background-color: white;
+  padding: 50px;
+}
+.grid-container2 > div {
+  background-color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+<<<<<<< HEAD
+.aboutme {
+  margin-top: 60px; auto;
+    display: left;
+    margin-left: 400px;
+      margin-right: 0px;
+    color: #ff1a77;
+    width: 600px;
+     }
+=======
+>>>>>>> 77f4f4755b231a0ecf9c31c5470b4737fec34579
+
+back {
+  display: left;
+}

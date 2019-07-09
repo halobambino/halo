@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="icon"
+      type="image/png"
+      href="favicon.ico">
+     <link rel="stylesheet" type="text/css" href="style.css">
+     <link href="style.css" rel="stylesheet" type="text/css" />
+     <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
+     <style>
+          .table {
+               display: table;
+               margin: 0 auto;
+          }
+          .grid-container {
+               margin-top: 30px;
+               min-width: 696px;
+               list-style: none;
+               padding-top: 20px;
+          }
+     </style>
+</head>
+
+<div>
+  <ul class="breadcrumb">
+  <li><a href="index.html">home</a></li>
+  <li><a href="portfolio.html">portfolio</a></li>
+  <li><a href="graphicdesign.html">graphic design</a></li>
+</ul>
+</div>
+
+<body onload="followMouse();">
+          <div class="wrap">
+                    <div id="ball"></div>
+               </div>
+
+     <div class="container">
+          <h4>paintings</h4>
+
+                    <div class="pa1.jpg"><img src="pa1.jpg" alt="2" width="1200" /></div>
+                    <div class="pa2.jpg"><img src="pa2.jpg" alt="2" width="1200" /></div>
+                    <div class="pa3.jpg"><img src="pa3.jpg" alt="2" width="1200" /></div>
+                    <div class="table">
+                        <div class="grid-container2">
+                          <div class="pa6.jpg"><img src="pa6.jpg" alt="2" width="400" /></div>
+                          <div class="pa5.jpg"><img src="pa5.jpg" alt="2" width="700" /></div>
+                        </div>
+
+
+
+     <script type="text/javascript">
+          var $ = document.querySelector.bind(document);
+          var $on = document.addEventListener.bind(document);
+          var xmouse, ymouse;
+          $on('mousemove', function (e) {
+               xmouse = e.clientX || e.pageX;
+               ymouse = e.clientY || e.pageY;
+          });
+          var ball = $('#ball');
+          var x = void 0,
+               y = void 0,
+               dx = void 0,
+               dy = void 0,
+               tx = 0,
+               ty = 0,
+               key = -1;
+          var followMouse = function followMouse() {
+               key = requestAnimationFrame(followMouse);
+               if (!x || !y) {
+                    x = xmouse;
+                    y = ymouse;
+               } else {
+                    dx = (xmouse - x) * 0.125;
+                    dy = (ymouse - y) * 0.125;
+                    if (Math.abs(dx) + Math.abs(dy) < 0.1) {
+                         x = xmouse;
+                         y = ymouse;
+                    } else {
+                         x += dx;
+                         y += dy;
+                    }
+               }
+               ball.style.left = x + 'px';
+               ball.style.top = y + 'px';
+          };
+     </script>
+
+</body>
+
+</html>

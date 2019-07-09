@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <head>
+          <link rel="icon"
+              type="image/png"
+              href="favicon.ico">
+        <div class="container">
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
+
+        <body onload = "followMouse();">
+
+             <div class="wrap">
+                  <div id="ball"></div>
+             </div>
+
+             <script type="text/javascript">
+             var $ = document.querySelector.bind(document);
+             var $on = document.addEventListener.bind(document);
+             var xmouse, ymouse;
+             $on('mousemove', function (e) {
+                  xmouse = e.clientX || e.pageX;
+                  ymouse = e.clientY || e.pageY;
+             });
+             var ball = $('#ball');
+             var x = void 0,
+                  y = void 0,
+                  dx = void 0,
+                  dy = void 0,
+                  tx = 0,
+                  ty = 0,
+                  key = -1;
+             var followMouse = function followMouse() {
+                  key = requestAnimationFrame(followMouse);
+                  if(!x || !y) {
+                       x = xmouse;
+                       y = ymouse;
+                  } else {
+                       dx = (xmouse - x) * 0.125;
+                       dy = (ymouse - y) * 0.125;
+                       if(Math.abs(dx) + Math.abs(dy) < 0.1) {
+                            x = xmouse;
+                            y = ymouse;
+                       } else {
+                            x += dx;
+                            y += dy;
+                       }
+                  }
+                  ball.style.left = x + 'px';
+                  ball.style.top = y + 'px';
+             };
+             </script>
+               </head>
+<main>
+
+<h1>
+  About me
+</h1>
+</main>
+ <div class="kiss">
+            <h2 href="#"></h2>
+</div>
+      <div class="vertical-menu">
+  <a href="portfolio.html">portfolio ✎</a>
+  <a href="postcards.html">postcards</a>
+  <a href="aboutme.html">about me</a>
+  <a href="#">Link 4</a>
+</div>
+ <div class="social">
+ <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/hallobambino">fb</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/halobambino/">insta</a>
+   <a target="_blank" rel="noopener noreferrer" href="https://unsplash.com/@halobambino">unsplash</a>
+  </div>
+  <div class="aboutme">
+    <font color="black">I'm a 29 years old designer from Poland currently based in Warsaw. I love staring at beautiful
+things. Every manifestation of creative action, especially visual art, graphic & industrial design
+inspires and impresses me.
+I’ve been working as a freelancer for 6 years now while also being graphic and web designer at
+a small digital agency. I’m always looking for new challenges and i feel ready to work for a
+good design studio anywhere in the world! I enjoy working with people, especially if they have
+the same passion as i do.</font> ☀☀☀
+    </div>
+    <div style="width:70%;height:0;padding-bottom:68%;position:relative;display:left;
+      margin-left:400px;"><iframe src="https://giphy.com/embed/1fm9a68tbJPVGmeidp" width="70%" height="70%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/reaction-childrens-miracle-network-hospitals-cmn-1fm9a68tbJPVGmeidp"></a></p>
+<div class="aboutme"
+      <h3><font color="black" font weight="bold">Hobbies and interests</font> ★★★</h3>
+      <h3>Art ♥ Adventures ♥ Travelling ♥ Literature ♥ Independent Cinema ♥ Healthy
+lifestyle ♥ Beach ♥ Big cities ♥ Longboard ♥ Healthy food</h3>
+</div>
+    </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="icon"
+      type="image/png"
+      href="favicon.ico">
+     <link rel="stylesheet" type="text/css" href="style.css">
+     <link href="style.css" rel="stylesheet" type="text/css" />
+     <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
+     <style>
+          .table {
+               display: table;
+               margin: 0 auto;
+          }
+          .grid-container {
+               margin-top: 30px;
+               min-width: 696px;
+               list-style: none;
+               padding-top: 20px;
+          }
+     </style>
+</head>
+
+<div>
+  <ul class="breadcrumb">
+  <li><a href="index.html">home</a></li>
+  <li><a href="portfolio.html">portfolio</a></li>
+  <li><a href="graphicdesign.html">graphic design</a></li>
+</ul>
+</div>
+
+<body onload="followMouse();">
+          <div class="wrap">
+                    <div id="ball"></div>
+               </div>
+
+     <div class="container">
+          <h4>Industrial design</h4>
+          <h3>product design</h3>
+
+                    <div class="ind.jpg"><img src="ind.jpg" alt="2" width="1200" /></div>
+                    <div class="ind2.jpg"><img src="ind2.jpg" alt="2" width="1200" /></div>
+          <h3>visualisation</h3>
+                  <div class="ind3.jpg"><img src="ind3.jpg" alt="2" width="1200" /></div>
+
+
+
+     <script type="text/javascript">
+          var $ = document.querySelector.bind(document);
+          var $on = document.addEventListener.bind(document);
+          var xmouse, ymouse;
+          $on('mousemove', function (e) {
+               xmouse = e.clientX || e.pageX;
+               ymouse = e.clientY || e.pageY;
+          });
+          var ball = $('#ball');
+          var x = void 0,
+               y = void 0,
+               dx = void 0,
+               dy = void 0,
+               tx = 0,
+               ty = 0,
+               key = -1;
+          var followMouse = function followMouse() {
+               key = requestAnimationFrame(followMouse);
+               if (!x || !y) {
+                    x = xmouse;
+                    y = ymouse;
+               } else {
+                    dx = (xmouse - x) * 0.125;
+                    dy = (ymouse - y) * 0.125;
+                    if (Math.abs(dx) + Math.abs(dy) < 0.1) {
+                         x = xmouse;
+                         y = ymouse;
+                    } else {
+                         x += dx;
+                         y += dy;
+                    }
+               }
+               ball.style.left = x + 'px';
+               ball.style.top = y + 'px';
+          };
+     </script>
+
+</body>
+
+</html>
