@@ -1,14 +1,292 @@
-<!DOCTYPE html>
-<html>
-
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <link rel="icon"
-      type="image/png"
-      href="favicon.ico">
-     <link rel="stylesheet" type="text/css" href="style.css">
-     <link href="style.css" rel="stylesheet" type="text/css" />
-     <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
-     <style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="stylesheet" type="text/css" href="style.css" /> -->
+  <link rel="icon" type="image/png" ref="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
+  <style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+    width: 20%;
+}
+
+.right {
+    width: 80%;
+}
+
+.row {
+    margin: 60px 0 0 100px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .left {
+    width: 100%;
+  }
+}
+
+h1 {
+	position: relative;
+	display: block;
+	margin: 0;
+	font-size: 4rem;
+	line-height: 1;
+	animation: up 1200ms linear forwards;
+	z-index: 1;
+	text-shadow: 0px 1px 1px rgba(255,255,255,1);
+
+	&::before,
+	&::after {
+		position: absolute;
+		content: '';
+		width: 0px;
+		height: 1px;
+		left: 0;
+		background-color: rgba(0,0,0,0.2);
+		z-index: -1;
+	}
+
+	&::before {
+		top: 0.2rem;
+		animation: draw 500ms linear 1s forwards;
+	}
+
+	&::after {
+		bottom: 0.4rem;
+		animation: draw 500ms linear 1s forwards;
+	}
+
+}
+
+body {
+    background: white;
+    font-family: Alegreya, Alegreya Sans, Webdings;
+}
+
+.kiss h2 {
+    font-size: 18px;
+    font-family: Webdings;
+    padding: 0px;
+    margin-bottom: 100px;
+    color: #ff1a77;
+}
+
+.vertical-menu {
+    width: 200px;
+    position: absolute;
+    top: 180px;
+}
+
+.vertical-menu a {
+    color: black;
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.vertical-menu a:hover {
+    font-weight: bolder;
+    color: #00f78c;
+}
+
+.social {
+            padding: 0px;
+            position: absolute;
+            bottom: 80px;
+}
+.social a {
+              padding: 10px;
+              font-weight: bold;
+              text-decoration: none;
+              color: black;
+    }
+    .social a:hover {
+ color: #00f78c;
+ font-size: 22px;
+}
+
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.fullscreen-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.table {
+	display: table;
+	margin: 0;
+}
+ul#horizontal-list {
+	min-width: 696px;
+	list-style: none;
+	padding-top: 20px;
+	}
+	ul#horizontal-list li {
+		display: inline;
+	}
+	li {
+		position: relative;
+		/* list-style-type: none; */
+		margin-right: 50px;
+		cursor: pointer;
+		color: black;
+	  }
+	  li:last-child {
+		margin-right: 0px;
+	  }
+	  li:after {
+		content: "";
+		font-weight: bold;
+		position: absolute;
+		z-index: -1;
+		left: 50%;
+		transform: translateX(-50%) rotate(0deg);
+	  }
+	  li:nth-child(1):after {
+		background: #00f78c;
+		font-weight: bolder;
+	  }
+	  li:nth-child(2):after {
+		background: #00f78c;
+		font-weight: bold;
+	  }
+	  li:nth-child(3):after {
+		background: #00f78c;
+		font-weight: bolder;
+	  }
+	  li:nth-child(4):after {
+		background: #00f78c;
+		font-weight: bolder;
+	  }
+	  li:nth-child(1):after {
+		clip-path: polygon(6% 10%, 100% 0, 64% 65%, 28% 65%);
+		height: 85px;
+		width: 75px;
+		bottom: -47px;
+		animation: stretch 2s ease infinite;
+	  }
+	  @keyframes stretch {
+		25% {
+		  transform: translateX(-50%) rotate(2deg) scaleY(0.93);
+		}
+		50% {
+		  transform: translateX(-50%) rotate(-2deg) scaleX(0.93);
+		  clip-path: polygon(6% 20%, 100% 0, 64% 65%, 28% 65%);
+		}
+		75% {
+		  transform: translateX(-50%) rotate(3deg) scale(1.05);
+		}
+	  }
+	  li:nth-child(2):after {
+		clip-path: polygon(61% 0%, 100% 19%, 71% 100%, 0% 100%);
+		height: 55px;
+		width: 75px;
+		bottom: -18px;
+		animation: stretch2 1.5s ease infinite;
+	  }
+	  @keyframes stretch2 {
+		25% {
+		  transform: translateX(-50%) rotate(-2deg) scaleY(1.05);
+		}
+		50% {
+		  transform: translateX(-50%) rotate(2deg) scaleY(0.93) scaleX(1.06);
+		  clip-path: polygon(61% 0%, 100% 19%, 71% 100%, 12% 100%);
+		}
+		75% {
+		  transform: translateX(-50%) rotate(3deg) scale(1.05);
+		  clip-path: polygon(61% 0%, 80% 19%, 71% 100%, 12% 100%);
+		}
+	  }
+	  li:nth-child(3):after {
+		clip-path: polygon(0% 0%, 100% 0%, 100% 99%, 0% 57%);
+		height: 55px;
+		width: 45px;
+		bottom: -18px;
+		animation: stretch3 2s ease infinite;
+	  }
+	  @keyframes stretch3 {
+		25% {
+		  transform: translateX(-50%) rotate(-2deg) scaleY(1.05);
+		}
+		50% {
+		  transform: translateX(-50%) rotate(2deg) scaleY(0.93) scaleX(1.06);
+		  clip-path: polygon(10% 5%, 100% 0%, 100% 99%, 0% 57%);
+		}
+		75% {
+		  transform: translateX(-50%) rotate(3deg) scale(1.05);
+		  clip-path: polygon(0% 0%, 100% 0%, 100% 99%, 10% 37%);
+		}
+	  }
+	  li:nth-child(4):after {
+		clip-path: polygon(0% 40%, 100% 0%, 100% 99%, 19% 100%);
+		height: 55px;
+		width: 45px;
+		bottom: -18px;
+		animation: stretch4 2s ease infinite;
+	  }
+	  @keyframes stretch4 {
+		25% {
+		  transform: translateX(-50%) rotate(-2deg) scaleY(1.05);
+		}
+		50% {
+		  transform: translateX(-50%) rotate(2deg) scaleY(0.93) scaleX(1.06);
+		  clip-path: polygon(0% 40%, 100% 0%, 100% 99%, 19% 100%);
+		}
+		75% {
+		  transform: translateX(-50%) rotate(3deg) scaleY(1.05);
+		  clip-path: polygon(0% 40%, 100% 0%, 100% 99%, 19% 100%);
+		}
+	  }
+	  li:hover:after {
+		animation: boink 1s ease forwards 1; font-weight: bolder;
+	  }
+	  @keyframes boink {
+		80% {
+		  transform: scaleX(1.9) scaleY(0.6) translateX(-30%);
+		}
+	  }
+	  @media (max-width: 600px) {
+		li {
+		  font-size: 15px;
+		}
+    }
+    #horizontal-list a:hover{
+      font-weight: bolder;
+    }
+    #horizontal-list a {
+              padding: 10px;
+              text-decoration: none;
+              color: black;
+    }
+
           .table {
                display: table;
                margin: 0 auto;
@@ -19,52 +297,98 @@
                list-style: none;
                padding-top: 20px;
           }
-     </style>
+          .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 50px;
+  background-color: white;
+  padding: 0;
+}
+
+.grid-container > div {
+  background-color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+  </style>
 </head>
 
-<div>
-  <ul class="breadcrumb">
-  <li><a href="index.html">home</a></li>
-  <li><a href="portfolio.html">portfolio</a></li>
-  <li><a href="graphicdesign.html">graphic design</a></li>
-</ul>
-</div>
-
-<body onload="followMouse();">
-          <div class="wrap">
-                    <div id="ball"></div>
-               </div>
-
-     <div class="container">
-          <h4>Graphic design</h4>
+<body>
+  <div class="row">
+    <div class="column left">
+      <h1 class="overlay">Halo!</h1>
+      <div class="kiss">
+        <h2 href="#"></h2>
+      </div>
+      <div class="vertical-menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">portfolio ✎</a>
+        <a href="postcards.html">postcards</a>
+        <a href="aboutme.html">about me</a>
+      </div>
+      
+      <div class="social">
+        <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/hallobambino">fb</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/halobambino/">insta</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://unsplash.com/@halobambino">unsplash</a>
+      </div>
+  <!--  <h2>Column 1</h2>
+      <p>Some text..</p> -->
+    </div>
+    <div class="column right">
+     <!-- <div class="fullscreen-bg"> 
+     <!--   <video loop muted autoplay poster="f.jpg" class="fullscreen-bg__video">
+          <source src="u.mp4" type="video/mp4">
+        </video> -->
+        
+	<div id="menu-outer">
+		<div class="table">
+			<ul id="horizontal-list">
+				<li><a href="graphicdesign.html"><b>graphic design</b></a></li>
+				<li><a href="webdesign.html">web design</a></li>
+				<li><a href="industrial.html">industrial design</a></li>
+				<li><a href="paintings.html">paintings</a></li>
+			</ul>
+		</div>
+		
+		<div>
           <h3>logo design</h3>
           <div class="table">
-               <div class="grid-container">
-                    <div class="folioweb_Obszar roboczy 1.jpg"> <img src="folioweb-13.jpg" alt="egp" width="200" /></div>
-                    <div class="folioweb-02.jpg"><img src="folioweb-02.jpg" alt="2" width="200" /></div>
-                    <div class="folioweb-03.jpg"><img src="folioweb-03.jpg" alt="2" width="200" /></div>
-                    <div class="folioweb-04.jpg"><img src="folioweb-04.jpg" alt="2" width="200" /></div>
-                    <div class="folioweb-05.jpg"><img src="folioweb-05.jpg" alt="2" width="200" /></div>
-                    <div class="folioweb-06.jpg"><img src="folioweb-06.jpg" alt="2" width="200" /></div>
-                    <div class="folioweb-07.jpg"><img src="folioweb-07.jpg" alt="2" width="200" /></div>
-                    <div class="folioweb-08.jpg"><img src="folioweb-08.jpg" alt="2" width="200" /></div>
-                    <div class="folioweb-09.jpg"><img src="folioweb-09.jpg" alt="2" width="200" /></div>
-                    <div class="folioweb-10.jpg"><img src="folioweb-10.jpg" alt="2" width="200" /></div>
-                    <div class="folioweb-11.jpg"><img src="folioweb-11.jpg" alt="2" width="200" /></div>
-                    <div class="folioweb-12.jpg"><img src="folioweb-12.jpg" alt="2" width="200" /></div>
-               </div>
-          <h3>print design</h3>
-              <div class="table">
-                  <div class="grid-container2">
-                    <div class="off.jpg"><img src="off.jpg" alt="2" width="600" /></div>
-                    <div class="plakat.jpg"><img src="plakat.jpg" alt="2" width="600" /></div>
-                  </div>
-          <h3>branding</h3>
-                    <div class="mar.jpg"><img src="mar.jpg" alt="2" width="1200" /></div>
-                    <div class="hel.jpg"><img src="hel.jpg" alt="2" width="1200" /></div>
-          <h3>infographic</h3>
-                  <div class="con.jpg"><img src="con.jpg" alt="2" width="1200" /></div>
-     <script type="text/javascript" src="follow_mouse.js"></script>
+            <div class="grid-container">
+              <div class="folioweb_Obszar roboczy 1.jpg"> <img src="folioweb-13.jpg" alt="egp" width="200" /></div>
+              <div class="folioweb-02.jpg"><img src="folioweb-02.jpg" alt="2" width="200" /></div>
+              <div class="folioweb-03.jpg"><img src="folioweb-03.jpg" alt="2" width="200" /></div>
+              <div class="folioweb-04.jpg"><img src="folioweb-04.jpg" alt="2" width="200" /></div>
+              <div class="folioweb-05.jpg"><img src="folioweb-05.jpg" alt="2" width="200" /></div>
+              <div class="folioweb-06.jpg"><img src="folioweb-06.jpg" alt="2" width="200" /></div>
+              <div class="folioweb-07.jpg"><img src="folioweb-07.jpg" alt="2" width="200" /></div>
+              <div class="folioweb-08.jpg"><img src="folioweb-08.jpg" alt="2" width="200" /></div>
+              <div class="folioweb-09.jpg"><img src="folioweb-09.jpg" alt="2" width="200" /></div>
+              <div class="folioweb-10.jpg"><img src="folioweb-10.jpg" alt="2" width="200" /></div>
+              <div class="folioweb-11.jpg"><img src="folioweb-11.jpg" alt="2" width="200" /></div>
+              <div class="folioweb-12.jpg"><img src="folioweb-12.jpg" alt="2" width="200" /></div>
+            </div>
+            
+            <h3>print design</h3>
+            <div class="table">
+              <div class="grid-container2">
+                <div class="off.jpg"><img src="off.jpg" alt="2" width="600" /></div>
+                <div class="plakat.jpg"><img src="plakat.jpg" alt="2" width="600" /></div>
+              </div>
+            </div>
+            
+            <h3>branding</h3>
+              <div class="mar.jpg"><img src="mar.jpg" alt="2" width="1200" /></div>
+              <div class="hel.jpg"><img src="hel.jpg" alt="2" width="1200" /></div>
+          
+            <h3>infographic</h3>
+              <div class="con.jpg"><img src="con.jpg" alt="2" width="1200" /></div>
+		</div>
+	</div>
+      <!-- </div> -->
+    </div>
+  </div>
 
 </body>
 

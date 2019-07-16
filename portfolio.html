@@ -1,31 +1,150 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<link rel="stylesheet" type="text/css" href="style.css" />
-	<link rel="icon"
-			type="image/png"
-			href="favicon.ico">
-	<link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
-	<style>
-	* {
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="stylesheet" type="text/css" href="style.css" /> -->
+  <link rel="icon" type="image/png" ref="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
+  <style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+    width: 25%;
+}
+
+.right {
+    width: 75%;
+}
+
+.row {
+    margin: 60px 0 0 100px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .left {
+    width: 100%;
+  }
+}
+
+h1 {
+	position: relative;
+	display: block;
 	margin: 0;
-	padding: 0;
+	font-size: 4rem;
+	line-height: 1;
+	animation: up 1200ms linear forwards;
+	z-index: 1;
+	text-shadow: 0px 1px 1px rgba(255,255,255,1);
+
+	&::before,
+	&::after {
+		position: absolute;
+		content: '';
+		width: 0px;
+		height: 1px;
+		left: 0;
+		background-color: rgba(0,0,0,0.2);
+		z-index: -1;
+	}
+
+	&::before {
+		top: 0.2rem;
+		animation: draw 500ms linear 1s forwards;
+	}
+
+	&::after {
+		bottom: 0.4rem;
+		animation: draw 500ms linear 1s forwards;
+	}
+
 }
 
-body
-
-
-{
-	text-align: center;
-	font-family: Alegreya;
+body {
     background: white;
-
+    font-family: Alegreya, Alegreya Sans, Webdings;
 }
+
+.kiss h2 {
+    font-size: 18px;
+    font-family: Webdings;
+    padding: 0px;
+    margin-bottom: 100px;
+    color: #ff1a77;
+}
+
+.vertical-menu {
+    width: 200px;
+    position: absolute;
+    top: 180px;
+}
+
+.vertical-menu a {
+    color: black;
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.vertical-menu a:hover {
+    font-weight: bolder;
+    color: #00f78c;
+}
+
+.social {
+            padding: 0px;
+            position: absolute;
+            bottom: 80px;
+}
+.social a {
+              padding: 10px;
+              font-weight: bold;
+              text-decoration: none;
+              color: black;
+    }
+    .social a:hover {
+ color: #00f78c;
+ font-size: 22px;
+}
+
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.fullscreen-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .table {
 	display: table;
-	margin: 0 auto;
+	margin: 0;
 }
 ul#horizontal-list {
-	margin-top: 100px;
 	min-width: 696px;
 	list-style: none;
 	padding-top: 20px;
@@ -33,9 +152,6 @@ ul#horizontal-list {
 	ul#horizontal-list li {
 		display: inline;
 	}
-
-
-
 	li {
 		position: relative;
 		/* list-style-type: none; */
@@ -54,27 +170,22 @@ ul#horizontal-list {
 		left: 50%;
 		transform: translateX(-50%) rotate(0deg);
 	  }
-
 	  li:nth-child(1):after {
 		background: #00f78c;
 		font-weight: bolder;
 	  }
-
 	  li:nth-child(2):after {
 		background: #00f78c;
 		font-weight: bold;
 	  }
-
 	  li:nth-child(3):after {
 		background: #00f78c;
 		font-weight: bolder;
 	  }
-
 	  li:nth-child(4):after {
 		background: #00f78c;
 		font-weight: bolder;
 	  }
-
 	  li:nth-child(1):after {
 		clip-path: polygon(6% 10%, 100% 0, 64% 65%, 28% 65%);
 		height: 85px;
@@ -167,7 +278,6 @@ ul#horizontal-list {
 		  font-size: 15px;
 		}
     }
-
     #horizontal-list a:hover{
       font-weight: bolder;
     }
@@ -177,16 +287,38 @@ ul#horizontal-list {
               color: black;
     }
 
-	</style>
+
+  </style>
 </head>
 
-<body onload = "followMouse();">
-
-    <div class="wrap">
-         <div id="ball"></div>
+<body>
+  <div class="row">
+    <div class="column left">
+      <h1 class="overlay">Halo!</h1>
+      <div class="kiss">
+        <h2 href="#"></h2>
+      </div>
+      <div class="vertical-menu">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">portfolio ✎</a>
+        <a href="postcards.html">postcards</a>
+        <a href="aboutme.html">about me</a>
+      </div>
+      
+      <div class="social">
+        <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/hallobambino">fb</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/halobambino/">insta</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://unsplash.com/@halobambino">unsplash</a>
+      </div>
+  <!--  <h2>Column 1</h2>
+      <p>Some text..</p> -->
     </div>
-    <script type="text/javascript" src="follow_mouse.js"></script>
-
+    <div class="column right">
+     <!-- <div class="fullscreen-bg"> 
+     <!--   <video loop muted autoplay poster="f.jpg" class="fullscreen-bg__video">
+          <source src="u.mp4" type="video/mp4">
+        </video> -->
+        
 	<div id="menu-outer">
 		<div class="table">
 			<ul id="horizontal-list">
@@ -197,7 +329,9 @@ ul#horizontal-list {
 			</ul>
 		</div>
 	</div>
-
+      <!-- </div> -->
+    </div>
+  </div>
 
 </body>
 
